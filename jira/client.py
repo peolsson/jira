@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from __future__ import print_function
+from builtins import str
 
 """
 This module implements a friendly (well, friendlier) interface between the raw JSON
@@ -2286,9 +2287,9 @@ class JIRA(object):
             #    if self.resource_owner_key:
             #        params.append(('oauth_token', self.resource_owner_key))
 
-            class EmptyKey(unicode):
+            class EmptyKey(str):
 
-                def __nonzero__(self):
+                def __bool__(self):
                     return True
 
             def __init__(self, user,
